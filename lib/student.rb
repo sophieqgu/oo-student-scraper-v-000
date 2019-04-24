@@ -12,13 +12,9 @@ class Student
   end
 
   def self.create_from_collection(students_array)
-    self.new.tap do |student|
       students_array.each do |student_hash|
-        student_hash.each do |k,v|
-          student.send("#{k}=", v)
-        end 
+        self.new(student_hash)
       end 
-    end 
   end
 
   def add_student_attributes(attributes_hash)
